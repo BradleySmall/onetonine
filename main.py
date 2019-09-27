@@ -3,7 +3,7 @@ put operators between numbers to make 100
 """
 
 
-def process (numbers, operators):
+def process(numbers, operators):
     """
     builds a string then calls eval on it
     """
@@ -26,14 +26,14 @@ def main():
 
     while len(operators) != operators.count(' '):
         roll_over = True
-        for idx in range(len(operators)):
+        for idx, value in enumerate(operators):
             if roll_over:
                 roll_over = False
-                if operators[idx] == '+':
+                if value == '+':
                     operators[idx] = '-'
-                elif operators[idx] == '-':
+                elif value == '-':
                     operators[idx] = ' '
-                elif operators[idx] == ' ':
+                elif value == ' ':
                     operators[idx] = '+'
                     roll_over = True
 
@@ -42,5 +42,5 @@ def main():
             print(out_str)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
