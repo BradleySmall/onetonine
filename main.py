@@ -5,15 +5,43 @@ put operators between numbers to make 100
 
 def process(numbers, operators):
     """
-    builds a string then calls eval on it
+    builds interprets the value
+    """
+    accum = 0
+    activ = '+'
+    hold = 0
+
+    for num, opr in zip(numbers, operators):
+        hold *= 10
+        hold += num
+        if opr == ' ':
+            continue
+        if activ == '+':
+            accum += hold
+        elif activ == '-':
+            accum -= hold
+        hold = 0
+        activ = opr
+    hold *= 10
+    hold += numbers[-1]
+    if activ == '+':
+        accum += hold
+    elif activ == '-':
+        accum -= hold
+
+    return accum
+
+
+def stringify(numbers, operators):
+    """
+    builds a string
     """
     out_str = ""
     for num, opr in zip(numbers, operators):
         out_str += str(num)+opr.strip()
     out_str += str(numbers[-1])
-    return_value = eval(out_str)
 
-    return return_value, out_str
+    return out_str
 
 
 def main():
@@ -37,8 +65,10 @@ def main():
                     operators[idx] = '+'
                     roll_over = True
 
-        accumulator, out_str = process(numbers, operators)
+        accumulator = process(numbers, operators)
+
         if accumulator == 100:
+            out_str = stringify(numbers, operators)
             print(out_str)
 
 
