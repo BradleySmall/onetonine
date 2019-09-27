@@ -25,17 +25,17 @@ def main():
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     while len(operators) != operators.count(' '):
-        overflow = True
-        for idx in range(8):
-            if overflow:
-                overflow = False
+        roll_over = True
+        for idx in range(len(operators)):
+            if roll_over:
+                roll_over = False
                 if operators[idx] == '+':
                     operators[idx] = '-'
                 elif operators[idx] == '-':
                     operators[idx] = ' '
                 elif operators[idx] == ' ':
                     operators[idx] = '+'
-                    overflow = True
+                    roll_over = True
 
         accumulator, out_str = process(numbers, operators)
         if accumulator == 100:
