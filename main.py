@@ -1,12 +1,9 @@
-"""
-put operators between numbers to make 100
-"""
+#!/usr/bin/python3
+"""Put operators between numbers to make 100."""
 
 
 def process(numbers, operators):
-    """
-    builds interprets the value
-    """
+    """Builds interprets the value."""
     accum = 0
     activ = '+'
     hold = 0
@@ -33,9 +30,7 @@ def process(numbers, operators):
 
 
 def stringify(numbers, operators):
-    """
-    builds a string
-    """
+    """Build a string."""
     out_str = ""
     for num, opr in zip(numbers, operators):
         out_str += str(num)+opr.strip()
@@ -45,10 +40,7 @@ def stringify(numbers, operators):
 
 
 def main():
-    """
-    main driver
-    rotates the operators spedometer style
-    """
+    """Rotate the operators spedometer style."""
     operators = ['+', '+', '+', '+', '+', '+', '+', '+']
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
